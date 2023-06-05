@@ -13,6 +13,18 @@
         android:theme="@style/Theme.SmartGoalsB"
         tools:targetApi="31">
         <activity
+            android:name=".ConclusaoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TemporalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RealistaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AtribuivelActivity"
+            android:exported="false" />
+        <activity
             android:name=".MensuravelActivity"
             android:exported="false" />
         <activity
