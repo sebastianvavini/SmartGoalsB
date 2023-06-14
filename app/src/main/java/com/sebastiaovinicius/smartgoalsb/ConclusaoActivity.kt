@@ -1,11 +1,14 @@
 package com.sebastiaovinicius.smartgoalsb
 
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.annotation.RequiresApi
 import com.sebastiaovinicius.smartgoalsb.databinding.ActivityConclusaoBinding
 import com.sebastiaovinicius.smartgoalsb.shared.SharedData
+import com.sebastiaovinicius.smartgoalsb.util.GeraJSON
 
 class ConclusaoActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityConclusaoBinding
@@ -100,6 +103,14 @@ class ConclusaoActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
+
+    private fun salvarJSON(texto:String){
+        val jsonVariavel= GeraJSON()
+        //if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+          //  jsonVariavel.salvar(texto)
+        //}
+    }
+
     private fun compilaTudo():String {
 
         val result=""" 
@@ -138,6 +149,9 @@ class ConclusaoActivity : AppCompatActivity(), View.OnClickListener {
        ${checkout()}
             
         """.trimIndent()
+
+       salvarJSON(result)
+
         return result
 
 
