@@ -22,10 +22,10 @@ class GeraJSON {
             e.printStackTrace()
         }
         try {
-           // PrintWriter(FileWriter (path, Charset.defaultCharset())).use { it.write(json.toString()) }
+            //PrintWriter(FileWriter (path, Charset.defaultCharset())).use { it.write(json.toString()) }
         }
         catch (e:Exception){
-            //e.printStackTrace()
+            e.printStackTrace()
         }
     }
 }
