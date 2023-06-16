@@ -1,54 +1,32 @@
 package com.sebastiaovinicius.smartgoalsb.util
 
+import android.hardware.camera2.CameraExtensionSession.StillCaptureLatency
+
 data class MetaModel(
+
     val id:Int,
     val descriptionEstalo:String,
     val expectativa:String,
     val porqueImporta:String,
-    val envolvidos:List<String>
+    //val envolvidos:List<String>,
+    val envolvidos:String,
+    //val recursosNecessarios:List<String>,
+    val recursosNecessarios:String,
+  //  val numerosEsperados:Double,
+    val numerosEsperados:String,
+    val metaFoiAtingidaSe:String,
+    val metricasDeAcompanhamento:String,
+    //val equipeEnvolvida:List<String>,
+    //val equipeEnvolvida:List<String>,
+    val equipeEnvolvida:String,
+    //val orcamentoDisponivel:Double,
+    val orcamentoDisponivel:String,
+   // val temOsRecursosNecessarios:Boolean,
+    val temOsRecursosNecessarios:String,
+    val dataFinalPrazo:String,
+    val resultadoPlausivelEsperado:String
+
 )
 
-/**
-val result="""
-       META SMART: ${binding.textViewEstalo.text}
 
-  Especifica:
-       ${binding.conclusaoExpectativa.text}
-
-       ${binding.conclusaoPorqueEImportante.text}
-
-       ${binding.conclusaoEnvolvidos.text}
-
-       ${binding.conclusaoRecursosNecessarios.text}
-
-   Mensurável:
-       ${binding.conclusaoNumerosEsperados.text}
-
-       ${binding.conclusaoMensuravelFoiAlcancadaSe.text}
-
-       ${binding.conclusaoMensuravelMetricasAcompanhamento.text}
-
-   Atribuivel:
-       ${binding.conclusaoAtribuivelEquipes.text}
-
-   Realista:
-       ${binding.conclusaoRealistaTemOrcamento.text}
-
-       ${binding.conclusaoRealistaTemRecursosNecessarios.text}
-
-   Temporal:
-       ${binding.conclusaoDataFinal.text}
-
-       ${binding.conclusaoResultadoPlausivel.text}
-
-   ASSINE A SMARTGOALS E SEJA O PRIMEIRO A RECEBER AS NOVAS FUNCIONALIDADES:
-       ${checkout()}
-
-        """.trimIndent()
-
-salvarJSON(result)
-
-return result
-
- **/
 

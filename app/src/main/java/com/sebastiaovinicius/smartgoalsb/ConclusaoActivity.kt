@@ -45,7 +45,7 @@ class ConclusaoActivity : AppCompatActivity(), View.OnClickListener {
 
             myIntent.setType("text/plain");
             //val body = compilaTudo();
-            val body = compilaTudoJSON();
+            val body =compilaTudoJSON()
             val sub = "Your Subject";
             myIntent.putExtra(Intent.EXTRA_SUBJECT,sub);
             myIntent.putExtra(Intent.EXTRA_TEXT,body);
@@ -55,27 +55,27 @@ class ConclusaoActivity : AppCompatActivity(), View.OnClickListener {
     }
     private fun especifica(){
         val expectativa= SharedData(this).getString("expectativa")
-        binding.conclusaoExpectativa.text="Expectativa: ${expectativa}"
+        binding.conclusaoExpectativa.text="Expectativa (${expectativa})"
 
         val importancia= SharedData(this).getString("importancia")
-        binding.conclusaoPorqueEImportante.text="Importancia da META: ${importancia}"
+        binding.conclusaoPorqueEImportante.text="Importancia da META ( ${importancia})"
 
         val envolvidos = SharedData(this).getString("envolvidos")
-        binding.conclusaoEnvolvidos.text= "Envolvidos: ${envolvidos}"
+        binding.conclusaoEnvolvidos.text= "Envolvidos( ${envolvidos})"
 
         val recursos_necessarios= SharedData(this).getString("recursosNecessarios")
-        binding.conclusaoRecursosNecessarios.text="Recursos Necessários: ${recursos_necessarios}"
+        binding.conclusaoRecursosNecessarios.text="Recursos Necessários( ${recursos_necessarios})"
     }
     private fun mensuravel(){
         val expectativaEmNumeros =SharedData(this).getString("expectativaEmNumeros")
-        binding.conclusaoNumerosEsperados.text="Números esperados: ${expectativaEmNumeros}"
+        binding.conclusaoNumerosEsperados.text="Números esperados( ${expectativaEmNumeros})"
 
         val ponto_de_chegada= SharedData(this).getString("ponto_de_chegada")
-        binding.conclusaoMensuravelFoiAlcancadaSe.text="A meta foi alcançada se: ${ponto_de_chegada}"
+        binding.conclusaoMensuravelFoiAlcancadaSe.text="A meta foi alcançada se( ${ponto_de_chegada})"
 
         val metricas_de_acompanhamento = SharedData(this).getString("metricas")
         binding.conclusaoMensuravelMetricasAcompanhamento.text=
-            "Métricas de Acompanhamento: ${metricas_de_acompanhamento}"
+            "Métricas de Acompanhamento( ${metricas_de_acompanhamento})"
     }
     private fun atribuivel(){
         val equipe_responsavel =SharedData(this).getString("responsaveis")
@@ -104,12 +104,7 @@ class ConclusaoActivity : AppCompatActivity(), View.OnClickListener {
     }
 
 
-    private fun salvarJSON(texto:String){
-        val gsonVariavel= Gson()
-        var jSonString = gsonVariavel.toJson(MetaModel(1,"Qualquer coisa"))
 
-
-    }
 
     private fun compilaTudo():String {
 
@@ -150,7 +145,7 @@ class ConclusaoActivity : AppCompatActivity(), View.OnClickListener {
             
         """.trimIndent()
 
-       salvarJSON(result)
+
 
         return result
 
@@ -159,7 +154,38 @@ class ConclusaoActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
-    private fun compulaTudoJSON():String{
+    private fun compilaTudoJSON():String{
+        val gsonVariavel= Gson()
 
+        /**
+        val id:Int,
+        val descriptionEstalo:String,
+        val expectativa:String,
+        val porqueImporta:String,
+        val envolvidos:List<String>,
+        val recursosNecessarios:List<String>,
+        val numerosEsperados:Int,
+        val metaFoiAtingidaSe:String,
+        val metricasDeAcompanhamento:String,
+        val equipeEnvolvida:List<String>,
+        val orcamentoDisponivel:Double,
+        val temOsRecursosNecessarios:Boolean,
+        val dataFinalPrazo:String,
+        val resultadoPlausivelEsperado:String **/
+
+        var jSonString = gsonVariavel.toJson(MetaModel(1,"${binding.textViewEstalo.text}",
+            " ${binding.conclusaoExpectativa.text}",
+            "${binding.conclusaoPorqueEImportante.text}",
+           "${binding.conclusaoEnvolvidos.text}",
+          "${binding.conclusaoRecursosNecessarios.text}","${binding.conclusaoNumerosEsperados.text}",
+            "${binding.conclusaoMensuravelFoiAlcancadaSe.text}",
+            "${binding.conclusaoMensuravelMetricasAcompanhamento.text}",
+            "${binding.conclusaoAtribuivelEquipes.text}",
+            "${binding.conclusaoRealistaTemOrcamento.text}",
+            "${binding.conclusaoRealistaTemRecursosNecessarios.text}",
+            "${binding.conclusaoDataFinal.text}",
+            "${binding.conclusaoResultadoPlausivel.text}"
+        ))
+         return jSonString
     }
 }
