@@ -55,7 +55,7 @@ class ConclusaoActivity : AppCompatActivity(), View.OnClickListener {
     }
     private fun especifica(){
         val expectativa= SharedData(this).getString("expectativa")
-        binding.conclusaoExpectativa.text="Expectativa (${expectativa})"
+        binding.conclusaoExpectativa.text=" O que deseja alcançar? (${expectativa})"
 
         val importancia= SharedData(this).getString("importancia")
         binding.conclusaoPorqueEImportante.text="Importancia da META ( ${importancia})"
